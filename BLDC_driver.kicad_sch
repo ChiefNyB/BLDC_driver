@@ -1,5 +1,89 @@
-(kicad_sch (version 20231120) (generator "eeschema") (generator_version "8.0")
-  (paper "A4")
-  (lib_symbols)
-  (symbol_instances)
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "c916f0ca-c741-4d6e-941d-c3e4758627a8")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 161.29 62.23)
+		(size 22.86 62.23)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "74000bb0-a5f0-4299-a3ad-88b22733008c")
+		(property "Sheetname" "DRV IC"
+			(at 161.29 61.5184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "DRV10983_main.kicad_sch"
+			(at 161.29 125.0446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BLDC_driver"
+				(path "/c916f0ca-c741-4d6e-941d-c3e4758627a8"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 96.52 62.23)
+		(size 22.86 24.13)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c59e13ea-fcdb-4c55-ac18-1b38a70fe565")
+		(property "Sheetname" "Power"
+			(at 96.52 61.5184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 96.52 86.9446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "BLDC_driver"
+				(path "/c916f0ca-c741-4d6e-941d-c3e4758627a8"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
 )
