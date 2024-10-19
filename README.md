@@ -72,14 +72,14 @@
 
   - elsősorban a TI-os katalógus alapján, a typical application résznél van egy lista hogy ők mit javasolnak
   - csak SMD alkatrészeket please
-  - alapból ilyen 0603-as (mármint inches 0603, mert a metrikus méretek el vannak tolva) méretű ellenállásokat és kondikat stb. keresünk, esetleg kicsit kisebb vagy nagyobb (de nyilván ha nagyobb kell, akkor nagyobb kell, pl valszeg a V_IN kondija az gyanús)
+  - alapból ilyen 0603-as (mármint inches 0603, mert a metrikus méretek el vannak tolva) méretű ellenállásokat és kondikat stb. keresünk,
+  esetleg kicsit kisebb vagy nagyobb (de nyilván ha nagyobb kell, akkor nagyobb kell, pl valszeg a táp kondija az gyanús, hogy nagyobb)
     - ellenállás választásnál ki kell számolni a teljesítményét és aszerint kell választani (0.25W; 1W ...)
-    - LED-nél választani kell egy LED-et, majd az ahhoz előírt mA-hez választunk egy ellenállást (power.sch), a színét rád bízom Kristóf ;)
+    - LED-nél választani kell egy LED-et, majd az ahhoz előírt mA-hez választunk egy ellenállást, a színét rád bízom Kristóf ;)
     - kondiknál a feszültséget és a kapacitást kell nézni alapból
-    - speed és dir pin-ekre feszültségosztó számítása
+    - SPEED és DIR inputokra olyan feszültségosztó kell (ellenállásértékek), amik leskálázzák a bejövő 5V-ot 3,3-ra
   - I2C védelem: ld. dokumentáció vázlatpontjai közt, illetve ezek alapján még újra számíthatók a felhúzó ellenállások értékei is
   - ha nagyon fancy-k akarunk lenni, egy thermal calculationt is nyomhatunk és esetleg egy hűtőbordát is válasszunk
-  - SPEED és DIR inputokra olyan feszültségosztó kell (ellenállásértékek, amik leskálázzák a bejövő 5V-ot 3,3-ra)
 
   Ha minden komponens footprintje megvan, el tudom kezdeni a fizikai tervezést is :)
 
