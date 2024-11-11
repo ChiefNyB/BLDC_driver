@@ -83,4 +83,16 @@
 
   Ha minden komponens footprintje megvan, el tudom kezdeni a fizikai tervezést is :)
 
+  ## Kiválasztott alkatrészek
+  Feltöltöttem egy Excel táblában a katalógusokból kiválasztott áramköri elemeket. A dokumentációhoz ideírom, amit csináltam:
+
+  - Katalógusból kiválasztottam az ajánlások miatt előre ismert áramköri elemeket + a LED-et
+  - Három kis számolás volt:
+    - LED ellenállás,
+    - feszültségosztók (TI online számolójával: [link](https://www.ti.com/download/kbase/volt/volt_div3.htm)),
+    - I2C felhúzó ellenállások min-max értékeinek újraszámolása (az ajánlottak jók maradtak).
+
+  Minden számolás és az összes alkatrész az Excelben. Alkatrészekhez van típuszsám, link, footprint adat és méretezési feltétel is (ha volt).
+  A termikus számítások nem voltak kivitelezhetők, nincs elég adat veszteségekre vagy case-sink hőellenállásra (vagy hogy egyáltalán becsüljük). Elvileg a driver alá kerülő thermal pad elegendő, bele lehet írni a dokumentációba, hogy igény szerint lehet még adni hozzá.
+
 
