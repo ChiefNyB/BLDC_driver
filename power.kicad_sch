@@ -880,7 +880,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_3.0x3.0mm"
 			(at 109.22 91.44 0)
 			(effects
 				(font
@@ -945,7 +945,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 135.89 98.298 90)
 			(effects
 				(font
@@ -1015,7 +1015,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 121.6152 86.36 0)
 			(effects
 				(font
@@ -1281,7 +1281,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_3.0x3.0mm"
 			(at 109.22 66.04 0)
 			(effects
 				(font

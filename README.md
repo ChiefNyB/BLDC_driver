@@ -25,8 +25,10 @@
   - Fizikai layout kialakítása
   - (adhatnánk majd a hozzá passzoló motorokra egy példát)
 
-## Dokumentáció vázlatosan
+## Dokumentáció vázlatosan (kapcsolás)
 (ömlesztett gondolatok, egy csöppet össze-vissza)
+
+KORREKCIÓ: A TVS DIÓDÁT EGYENLŐRE KISZEDTEM, VAN BEÉPÍTETT A CHIPBE
   
   - a chip modellt (footprint, stb...) a
   TI-os lapról töltöttem és illesztettem be: [link](https://vendor.ultralibrarian.com/TI/embedded/?gpn=DRV10983-Q1&package=PWP&pin=24&sid=&c=0)
@@ -63,6 +65,9 @@
     - ehhez majd lesznek számítások, poti értéke
   - a legvégén esetleg kérhetünk majd árajánlatot ha unatkozunk :P
 
+  - az I2C-t úgy lehet használni, ha a külső áramkör GND-je össze van kötve a motordriver GND_D-jével
+  - az 5V-os bemenet használatához is legalább a GND-t kell bekötni
+
 
   ## Szükséges számítások, paraméterek
   Légyszi Kristóf ide, vagy valami fileba majd gyűjtsd ki a komponens nevét/számát (pl.: R1) és a linket hogy melyiket választottuk...
@@ -79,9 +84,8 @@
     - kondiknál a feszültséget és a kapacitást kell nézni alapból
     - SPEED és DIR inputokra olyan feszültségosztó kell (ellenállásértékek), amik leskálázzák a bejövő 5V-ot 3,3-ra
   - I2C védelem: ld. dokumentáció vázlatpontjai közt, illetve ezek alapján még újra számíthatók a felhúzó ellenállások értékei is
-  - ha nagyon fancy-k akarunk lenni, egy thermal calculationt is nyomhatunk és esetleg egy hűtőbordát is válasszunk
-
-  Ha minden komponens footprintje megvan, el tudom kezdeni a fizikai tervezést is :)
+  - ha nagyon fancy-k akarunk lenni, egy thermal calculationt is nyomhatunk és esetleg egy hűtőbordát is válasszunk (1. gyakorlat -> pdf kb. 10. oldal)
+  - TVS diódák kapcsolása nem látszik a kapcs rajzon de az assets mappában megtalálható
 
   ## Kiválasztott alkatrészek
   Feltöltöttem egy Excel táblában a katalógusokból kiválasztott áramköri elemeket. A dokumentációhoz ideírom, amit csináltam:
@@ -93,6 +97,27 @@
     - I2C felhúzó ellenállások min-max értékeinek újraszámolása (az ajánlottak jók maradtak).
 
   Minden számolás és az összes alkatrész az Excelben. Alkatrészekhez van típuszsám, link, footprint adat és méretezési feltétel is (ha volt).
-  A termikus számítások nem voltak kivitelezhetők, nincs elég adat veszteségekre vagy case-sink hőellenállásra (vagy hogy egyáltalán becsüljük). Elvileg a driver alá kerülő thermal pad elegendő, bele lehet írni a dokumentációba, hogy igény szerint lehet még adni hozzá.
+  A termikus számítások nem voltak kivitelezhetők, nincs elég adat veszteségekre vagy case-sink hőellenállásra (vagy hogy egyáltalán becsüljük).
+  Elvileg a driver alá kerülő thermal pad elegendő, bele lehet írni a dokumentációba, hogy igény szerint lehet még adni hozzá.
+
+  ## PCB alias NYÁK design
+  - csatolásmentesítő kondik közel az IC-hez, mindegyiknek saját viája van a GND-hez
+  - 45°-os track törésszögek a jelreflexió elkerülésére
+  - thermal via-k: 20mil hole diameter, 8mil hole (for least resistance) ahogy [itt](https://www.ti.com/lit/an/slva959b/slva959b.pdf) a 2.5-ben írják
+  - a teljesítményfolyamban lévő track-ek és viák méretezve vannak (viából van egy dupla is, bár nem feltétlen lenne rá szükség) 
+  a számításokról készített screenshot az assetsben
+  - digitális <--> teljesítény oldalak elválasztása fizikailag amennyire lehet
+  - teljesítményvonalak kialakításánál fontos volt, hogy minél kisebb loopot csináljanak és rövidek legyenek
+  - GND és GNDPWR egy 0ohmos ellenállással (R4) összekötve: kis vezetékellenállású összeköttetés a bemeneti GND és a digitális jelek
+  GND-je közt
+  - buck konverter trackjei default értéken vannak, de van róla számítás hogy elég (assetsben)
+  - a power bemenetek jelölve vannak, a csatlakozónál légyszi csinálj egy ábrát, ami "katalógusba" mehetne
+  - két sarokban letörések...mert csak... :P 
+  - M2.5-ös mounting holeok hogy lehessen odacsavarozni valahova
+  - az alsó oldalra ragasztható heatsink ha akarja a felhasználó, de figyelni kell,
+  hogy ezen a részen galvanikus kapcsolat ne alakuljon ki a külvilággal
+  - földkiöntés a sima GND-vel
+  (- esetleg át lehetne alakítani hogy a heatsink-pad a sima GND-hez kapcsolódjon és a PWRGND-t másmerre vezetni, ha van idő...)
+  - ... és ezeken kívül bármi amit látsz a boardon és érdemes leírni
 
 
